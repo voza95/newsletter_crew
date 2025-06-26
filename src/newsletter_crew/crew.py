@@ -33,7 +33,7 @@ class NewsletterCrew():
             verbose=True
         )
     
-    @agents
+    @agent
     def newsletter_editor(self) -> Agent:
         return Agent(
             config=self.agents_config['newsletter_editor'], # type: ignore[index]
