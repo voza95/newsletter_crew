@@ -30,7 +30,8 @@ class NewsletterCrew():
     def newsletter_writer(self) -> Agent:
         return Agent(
             config=self.agents_config['newsletter_writer'], # type: ignore[index]
-            verbose=True
+            verbose=True,
+            allow_delegation=True
         )
     
     @agent
@@ -59,6 +60,8 @@ class NewsletterCrew():
     def newsletter_editor_task(self) -> Task:
         return Task(
             config=self.tasks_config['newsletter_editor_task'], # type: ignore[index]
+            async_execution=False,
+            output_file="newsletter.md", # The output file where the newsletter will be saved
         )
 
     @crew
